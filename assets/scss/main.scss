@@ -1,0 +1,14 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+@layer base {
+  html,
+  body {
+    @apply min-h-screen bg-white;
+    background-color: white !important;
+  }
+  body {
+    @apply text-gray-900 font-product font-light tracking-wide;
+  }
+}
