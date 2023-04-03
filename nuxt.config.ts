@@ -21,6 +21,9 @@ export default defineNuxtConfig({
   },
   modules: ['@sidebase/nuxt-auth'],
   auth: {
-    origin: 'https://test-tiqwa.vercel.app',
+    origin:
+      process.env.NODE_ENV === 'production'
+        ? 'https://traveller.vercel.app'
+        : 'localhost:3000',
   },
 })
