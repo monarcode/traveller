@@ -31,10 +31,8 @@
 </template>
 
 <script setup>
-import { useToast } from 'vue-toast-notification'
-
 const { signOut } = useSession()
-const { $toast } = useToast()
+const { $toast } = useNuxtApp()
 
 function doLogout() {
   signOut({ callbackUrl: '/' })

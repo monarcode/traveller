@@ -23,7 +23,7 @@ export default defineNuxtConfig({
   auth: {
     origin:
       process.env.NODE_ENV === 'production'
-        ? 'https://traveller.vercel.app'
-        : 'localhost:3000',
+        ? 'https://tiqwa-traveller.vercel.app'
+        : 'http://localhost:3000',
   },
 })

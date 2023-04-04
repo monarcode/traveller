@@ -64,9 +64,8 @@
   </div>
 </template>
 
-<script setup lang="ts">
+<script setup>
 import { isAxiosError } from 'axios'
-import { useToast } from 'vue-toast-notification'
 import axiosInstance from '~~/libs/axios'
 
 const emit = defineEmits(['close'])
@@ -79,7 +78,7 @@ const password_confirmation = ref('')
 const phone = ref('')
 const loading = ref(false)
 const { signIn } = useSession()
-const $toast = useToast()
+const { $toast } = useNuxtApp()
 
 async function doRegister() {
   loading.value = true
@@ -125,8 +124,7 @@ async function doRegister() {
     if (isAxiosError(error)) {
       $toast.error(error.response?.data.message)
     } else {
-      const err = error as Error
-      $toast.error(err.message)
+      $toast.error(error.message)
     }
   }
 

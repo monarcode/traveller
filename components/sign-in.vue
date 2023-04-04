@@ -45,10 +45,9 @@
 
 <script setup>
 import { isAxiosError } from 'axios'
-import { useToast } from 'vue-toast-notification'
 
 const { signIn } = useSession()
-const $toast = useToast()
+const { $toast } = useNuxtApp()
 
 const email = ref('')
 const password = ref('')
@@ -67,11 +66,11 @@ async function doLogin() {
       $toast.success('Welcome back!')
     }
   } catch (e) {
-    console.log(error)
-    if (isAxiosError(error)) {
-      $toast.error(error.response?.data.message)
+    console.log(e)
+    if (isAxiosError(e)) {
+      $toast.error(e.response?.data.message)
     } else {
-      $toast.error(err.message)
+      $toast.error(e.message)
     }
   }
 }
